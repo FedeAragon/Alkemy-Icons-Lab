@@ -1,14 +1,22 @@
 package com.alkemy.icoons.icons.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Getter;
@@ -18,6 +26,8 @@ import lombok.Setter;
 @Table(name = "icon")
 @Getter
 @Setter
+@SQLDelete(sql= "UPDATE icon SET deleted = true WHERE id=?")
+@Where(clause = "deleted=false")
 public class IconEntity {
 	
 	@Id
@@ -48,5 +58,5 @@ public class IconEntity {
 	
 	public void removePais(PaisEntity pais) {
 		this.paises.remove(pais);
-	}
+	}	
 }
