@@ -7,8 +7,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
@@ -22,20 +20,16 @@ import org.hibernate.annotations.Where;
 public class PaisEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY )
 	private Long id;
 	
-	@NotBlank
 	private String imagen;
 	
-	@NotBlank
 	private String denominacion;
 	
 	@Column(name = "cant_habitantes")
-	@NotNull
 	private Long cantidadHabitantes;
 	
-	@NotNull
 	private Long superficie;
 	
 	private boolean deleted = Boolean.FALSE;

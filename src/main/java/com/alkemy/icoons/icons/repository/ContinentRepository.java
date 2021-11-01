@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.alkemy.icoons.icons.entity.ContinenteEntity;
 
 @Repository
-public interface ContinenteRepository extends JpaRepository<ContinenteEntity, Long>{
+public interface ContinentRepository extends JpaRepository<ContinenteEntity, Long>{
 
 }
