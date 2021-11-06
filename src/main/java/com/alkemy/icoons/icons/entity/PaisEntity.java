@@ -63,4 +63,12 @@ public class PaisEntity {
 		return other.id == this.id;
 	}
 	
+	//Add and remove paises
+	public void addIcon(IconEntity icon) {
+		this.icons.add(icon);
+	}
+	
+	public void removeIcon(IconEntity icon) {
+		this.icons.remove(icon);
+	}	
 }

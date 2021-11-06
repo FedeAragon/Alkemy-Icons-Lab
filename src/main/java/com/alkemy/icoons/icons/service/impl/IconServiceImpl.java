@@ -14,6 +14,7 @@ import com.alkemy.icoons.icons.entity.PaisEntity;
 import com.alkemy.icoons.icons.exception.ParamNotFound;
 import com.alkemy.icoons.icons.mapper.IconMapper;
 import com.alkemy.icoons.icons.repository.IconRepository;
+import com.alkemy.icoons.icons.repository.PaisRepository;
 import com.alkemy.icoons.icons.repository.specifications.IconSpecification;
 import com.alkemy.icoons.icons.service.IconService;
 import com.alkemy.icoons.icons.service.PaisService;
@@ -26,15 +27,15 @@ public class IconServiceImpl implements IconService {
 
 	private IconMapper iconMapper;
 
-	private PaisService paisService;
+	private PaisRepository paisRepository;
 
 	@Autowired
 	public IconServiceImpl(IconRepository iconRepository, IconMapper iconMapper, IconSpecification iconSpecification,
-			PaisService paisService) {
+			PaisRepository paisRepository) {
 		this.iconRepository = iconRepository;
 		this.iconMapper = iconMapper;
 		this.iconSpecification = iconSpecification;
-		this.paisService = paisService;
+		this.paisRepository = paisRepository;
 	}
 
 	public List<IconSimpleDTO> getAll() {
@@ -76,7 +77,7 @@ public class IconServiceImpl implements IconService {
 	public void addPais(Long id, Long idPais) {
 		IconEntity entity = this.iconRepository.getById(id);
 		entity.getPaises().size();
-		PaisEntity paisEntity = this.paisService.getEntityById(idPais);
+		PaisEntity paisEntity = this.paisRepository.getById(idPais);
 		entity.addPais(paisEntity);
 		this.iconRepository.save(entity);
 	}
@@ -84,7 +85,7 @@ public class IconServiceImpl implements IconService {
 	public void removePais(Long id, Long idPais) {
 		IconEntity entity = this.iconRepository.getById(id);
 		entity.getPaises().size();
-		PaisEntity paisEntity = this.paisService.getEntityById(idPais);
+		PaisEntity paisEntity = this.paisRepository.getById(idPais);
 		entity.removePais(paisEntity);
 		this.iconRepository.save(entity);
 	}

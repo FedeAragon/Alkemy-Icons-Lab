@@ -78,12 +78,12 @@ public class IconController {
 	@PostMapping("/{id}/pais/{idPais}")
 	public ResponseEntity<String> addPais(@PathVariable Long id, @PathVariable Long idPais) {
 		this.iconService.addPais(id, idPais);
-		return ResponseEntity.ok("Deleted");
+		return ResponseEntity.ok("Pais agregado correctamente");
 	}
 	
 	@DeleteMapping("/{id}/pais/{idPais}")
 	public ResponseEntity<String> removePais(@PathVariable Long id, @PathVariable Long idPais) {
 		this.iconService.removePais(id, idPais);
-		return ResponseEntity.ok("Deleted");
+		return ResponseEntity.ok("Pais borrado correctamente");
 	}
 }

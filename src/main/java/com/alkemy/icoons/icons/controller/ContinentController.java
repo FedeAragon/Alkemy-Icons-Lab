@@ -21,7 +21,7 @@ import com.alkemy.icoons.icons.service.ContinentService;
 public class ContinentController {
 	
 	@Autowired
-	ContinentService continentService;
+	private ContinentService continentService;
 	
 	@GetMapping
 	public ResponseEntity<List<ContinentDTO>> getAll(){

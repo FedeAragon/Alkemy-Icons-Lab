@@ -7,13 +7,13 @@ import com.alkemy.icoons.icons.dto.IconDTO;
 import com.alkemy.icoons.icons.dto.IconSimpleDTO;
 
 public interface IconService {
-	List<IconSimpleDTO> getAll();
+	public List<IconSimpleDTO> getAll();
 
-	IconDTO save(IconDTO iconDTO);
+	public IconDTO save(IconDTO iconDTO);
 
-	IconDTO getDetailsById(Long id);
+	public IconDTO getDetailsById(Long id);
 
-	List<IconDTO> getByFilters(String name, String date, Set<Long> cities, String order);
+	public List<IconDTO> getByFilters(String name, String date, Set<Long> cities, String order);
 	
 	public IconDTO update(Long id, IconDTO iconDTO);
 	

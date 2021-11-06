@@ -11,5 +11,5 @@ import com.alkemy.icoons.icons.entity.IconEntity;
 @Repository
 public interface IconRepository extends JpaRepository<IconEntity, Long>{
 	
-	List<IconEntity> findAll(Specification<IconEntity> spec);
+	public List<IconEntity> findAll(Specification<IconEntity> spec);
 }
